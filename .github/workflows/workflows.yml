@@ -13,7 +13,7 @@ jobs:
         run: cmake --build ${{github.workspace}}/build --config Debug
 
       - name: Test
-        working-directory: ${{github.workspace}}/build
+        working-directory: ${{github.workspace}}/build/src/test
         run: ls -alh && ctest -C Debug
 
   run:
@@ -27,6 +27,6 @@ jobs:
       - name: Build
         run: cmake --build ${{github.workspace}}/build --config Release
 
-      - name: Test
+      - name: Run
         working-directory: ${{github.workspace}}/build
-        run: ls -alh && ./ci_cd_hello_world
+        run: ls -alh && make ci_cd_hello_world && ./ci_cd_hello_world
