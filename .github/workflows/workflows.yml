@@ -28,5 +28,5 @@ jobs:
         run: cmake --build ${{github.workspace}}/build --config Release
 
       - name: Run
-        working-directory: ${{github.workspace}}/build
+        working-directory: ${{github.workspace}}/build/src/main
         run: make ci_cd_hello_world &&  ls -alh && ./ci_cd_hello_world
