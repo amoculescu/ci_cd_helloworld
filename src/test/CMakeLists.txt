@@ -38,6 +38,7 @@ target_include_directories (
 add_executable(all_tests
         ${CMAKE_SOURCE_DIR}/src/test/TestCustomMath.cpp
         ${CMAKE_SOURCE_DIR}/src/test/TestFirstClass.cpp
+        ${CMAKE_SOURCE_DIR}/src/test/TestSecondClass.cpp
 )
 target_link_libraries(
         all_tests
