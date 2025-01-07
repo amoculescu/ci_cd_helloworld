@@ -12,7 +12,9 @@ private:
     string base = "Base String";
 
 public:
-    string testedMethod(string& append);
+    string testedMethod(const string& append);
+
+    bool testedMethod2(const string &test);
 };
 
 

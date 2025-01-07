@@ -5,7 +5,8 @@
 #include "gtest/gtest.h"
 #include "SecondClass.h"
 
-TEST(TestSecondClass, TestTestedMethod) {
+TEST(TestSecondClass, TestTestedMethod)
+{
     const string expected = "Base String short append short append short append";
     string testValue = "short append";
 
@@ -19,4 +20,12 @@ TEST(TestSecondClass, TestTestedMethod) {
     SecondClass dut2 = SecondClass();
     result = dut2.testedMethod(testValue);
     EXPECT_EQ(expected2, result);
+}
+
+TEST(TestSecondClass, TestTestedMethod2) {
+    SecondClass dut = SecondClass();
+
+    EXPECT_EQ(dut.testedMethod2("Base"), true);
+    EXPECT_EQ(dut.testedMethod2("foo"), false);
+    EXPECT_EQ(dut.testedMethod2("string much much longer than dut string"), false);
 }

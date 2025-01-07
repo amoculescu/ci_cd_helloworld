@@ -4,7 +4,7 @@
 #include <iostream>
 #include "SecondClass.h"
 
-string SecondClass::testedMethod(string& append)
+string SecondClass::testedMethod(const string& append)
 {
     if (append.length() > 12)
     {
@@ -17,4 +17,13 @@ string SecondClass::testedMethod(string& append)
         }
     }
     return base;
+}
+
+bool SecondClass::testedMethod2(const string& test)
+{
+    if (test.length() > base.length())
+    {
+        return false;
+    }
+    return base.contains(test);
 }
