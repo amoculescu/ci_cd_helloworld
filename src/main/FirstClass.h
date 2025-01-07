@@ -14,7 +14,14 @@ public:
     FirstClass();
 
     void untestedMethod();
+
     double testedMethod();
+
+    double testedMethod2();
+
+    double testedMethod3();
+
+    double testedMethod4();
 };
 
 

@@ -16,4 +16,14 @@ double FirstClass::testedMethod() {
     return privateDouble -= 1.231;;
 }
 
+double FirstClass::testedMethod2() {
+    return privateDouble += 1.231;
+}
 
+double FirstClass::testedMethod3() {
+    return privateDouble *= 1.231;
+}
+
+double FirstClass::testedMethod4() {
+    return privateDouble /= 1.231;
+}
