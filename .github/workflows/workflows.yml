@@ -10,11 +10,11 @@ jobs:
         run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Debug -DBUILD_UNIT_TESTS="True"
 
       - name: Build
-        run: cmake --build ${{github.workspace}}/build --config Debug --junit-report ./test-result.xml
+        run: cmake --build ${{github.workspace}}/build --config Debug
 
       - name: Test
         working-directory: ${{github.workspace}}/build/src/test
-        run: ls -alh && ctest -C Debug
+        run: ctest -C Debug --extra-verbose --junit-report ./test-result.xml
 
       - name: Test Report
         uses: mikepenz/action-junit-report@v5
