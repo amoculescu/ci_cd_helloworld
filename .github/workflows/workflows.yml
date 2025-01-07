@@ -1,4 +1,9 @@
-name: CMake
+name: Pipeline
+
+permissions:
+  checks: write
+  pull-requests: write # only required if `comment: true` was enabled
+
 on: [push, pull_request]
 jobs:
   test:
@@ -21,6 +26,8 @@ jobs:
         if: success() || failure() # always run even if the previous step fails
         with:
           report_paths: '${{github.workspace}}/build/src/test/test-result.xml'
+          comment: true
+          updateComment: true
 
   run:
     runs-on: ubuntu-latest
