@@ -29,6 +29,10 @@ jobs:
           comment: true
           updateComment: true
 
+      - name: Coverage
+        working-directory: ${{github.workspace}}
+        run: gcovr -f src/main -r . -o coverage.xml --xml-pretty --print-summary
+
   run:
     runs-on: ubuntu-latest
     steps:
