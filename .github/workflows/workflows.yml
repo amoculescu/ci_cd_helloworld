@@ -33,16 +33,22 @@ jobs:
       - name: Install Gcovr
         run: pipx install gcovr
 
-      - name: Coverage
+      - name: Coverage HTML
         working-directory: ${{github.workspace}}
-        run: gcovr -f src/main -r . --html -o cov-report/coverage.html --print-summary --jacoco cov-report/jacoco.xml
+        run: gcovr -f src/main -r . --html-details --print-summary
 
-      - name: Generate JaCoCo Badge
+      - name: Coverage jacoco
+        working-directory: ${{github.workspace}}
+        run: gcovr -f src/main -r . --cobertura-pretty --cobertura cov-report/cobertura-coverage.xml
+
+      - name: Generate Badge
         #if: (success() || failure()) && ${{github.ref == 'refs/heads/master'}}
-        uses: cicirello/jacoco-badge-generator@v2
+        uses: cjlapao/simple-badge-generator-action@v1
         with:
-          jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
-          badges-directory: build/reports/jacoco/test/html/badges
+          badge-path: '${{github.workspace}}/cov-report/coverage.svg'
+          badge-type: 'cobertura'
+          title: 'Coverage'
+          cobertura-path: '${{github.workspace}}/cov-report/cobertura-coverage.xml'
 
       - name: Coverage Report
         uses: JamesIves/github-pages-deploy-action@v4
