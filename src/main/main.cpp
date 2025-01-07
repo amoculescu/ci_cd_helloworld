@@ -11,6 +11,7 @@ int main() {
     std::cout << dut.testedMethod() << " Squared is: " << square(dut.testedMethod()) << std::endl;
 
     SecondClass dut2 = SecondClass();
-    std::cout << dut2.testedMethod("");
+    string testString = "with a long message appended.";
+    std::cout << dut2.testedMethod(testString) << std::endl;
     return 0;
 }
