@@ -1,2 +1,0 @@
-TestCustomMath.square 1 0.00367759
----

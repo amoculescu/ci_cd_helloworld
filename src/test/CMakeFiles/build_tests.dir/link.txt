@@ -1,2 +1,0 @@
-/usr/bin/ar qc libbuild_tests.a CMakeFiles/build_tests.dir/__/main/custom_math.cpp.o
-/usr/bin/ranlib libbuild_tests.a
