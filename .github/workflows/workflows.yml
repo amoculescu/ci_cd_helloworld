@@ -24,7 +24,7 @@ jobs:
 
       - name: Test Report
         uses: mikepenz/action-junit-report@v5
-        #if: (success() || failure()) && ${{github.ref == 'refs/heads/master'}}
+        if: (success() || failure())
         with:
           report_paths: '${{github.workspace}}/build/src/test/test-result.xml'
           comment: true
@@ -43,7 +43,7 @@ jobs:
         run: gcovr -f src/main -r . --cobertura-pretty --cobertura cov-report/cobertura-coverage.xml
 
       - name: Generate Badge
-        if: (success() || failure()) && ${{github.ref == 'refs/heads/master'}}
+        if: (success() || failure()) && github.ref == 'refs/heads/master'
         uses: cjlapao/simple-badge-generator-action@v1
         with:
           badge-path: '${{github.workspace}}/cov-report/coverage.svg'
@@ -52,8 +52,8 @@ jobs:
           cobertura-path: '${{github.workspace}}/cov-report/cobertura-coverage.xml'
 
       - name: Coverage Report
+        if: (success() || failure()) && github.ref == 'refs/heads/master'
         uses: JamesIves/github-pages-deploy-action@v4
-        if: (success() || failure()) && ${{github.ref == 'refs/heads/master'}}
         with:
           folder: cov-report
 
