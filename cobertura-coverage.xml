@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE coverage SYSTEM 'http://cobertura.sourceforge.net/xml/coverage-04.dtd'>
-<coverage line-rate="0.8125" branch-rate="1.0" lines-covered="13" lines-valid="16" branches-covered="0" branches-valid="0" complexity="0.0" timestamp="1736276665" version="gcovr 8.2">
+<coverage line-rate="0.90625" branch-rate="0.7" lines-covered="29" lines-valid="32" branches-covered="14" branches-valid="20" complexity="0.0" timestamp="1736279355" version="gcovr 8.2">
   <sources>
     <source>.</source>
   </sources>
   <packages>
-    <package name="src.main" line-rate="0.8125" branch-rate="1.0" complexity="0.0">
+    <package name="src.main" line-rate="0.90625" branch-rate="0.7" complexity="0.0">
       <classes>
         <class name="CustomMath_cpp" filename="src/main/CustomMath.cpp" line-rate="1.0" branch-rate="1.0" complexity="0.0">
           <methods/>
@@ -31,6 +31,52 @@
             <line number="24" hits="1" branch="false"/>
             <line number="27" hits="1" branch="false"/>
             <line number="28" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="SecondClass_cpp" filename="src/main/SecondClass.cpp" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+          <methods/>
+          <lines>
+            <line number="7" hits="2" branch="false"/>
+            <line number="9" hits="2" branch="true" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="0" type="jump" coverage="100%"/>
+              </conditions>
+            </line>
+            <line number="11" hits="1" branch="false"/>
+            <line number="12" hits="1" branch="false"/>
+            <line number="14" hits="4" branch="true" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="0" type="jump" coverage="100%"/>
+              </conditions>
+            </line>
+            <line number="15" hits="3" branch="false"/>
+            <line number="16" hits="3" branch="false"/>
+            <line number="19" hits="2" branch="false"/>
+            <line number="22" hits="5" branch="false"/>
+            <line number="24" hits="5" branch="true" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="0" type="jump" coverage="100%"/>
+              </conditions>
+            </line>
+            <line number="28" hits="4" branch="true" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="0" type="jump" coverage="100%"/>
+              </conditions>
+            </line>
+            <line number="32" hits="3" branch="false"/>
+            <line number="35" hits="1" branch="false"/>
+            <line number="37" hits="1" branch="false"/>
+            <line number="38" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="SecondClass_h" filename="src/main/SecondClass.h" line-rate="1.0" branch-rate="0.5" complexity="0.0">
+          <methods/>
+          <lines>
+            <line number="10" hits="8" branch="true" condition-coverage="50% (6/12)">
+              <conditions>
+                <condition number="0" type="jump" coverage="50%"/>
+              </conditions>
+            </line>
           </lines>
         </class>
       </classes>
