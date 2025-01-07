@@ -71,8 +71,8 @@ jobs:
           output: both
           thresholds: '75 90'
 
-
       - name: Code Coverage
+        if: success() || failure()
         working-directory: ${{github.workspace}}
         run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
 

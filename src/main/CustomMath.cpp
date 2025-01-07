@@ -1,7 +1,7 @@
 //
 // Created by andrei on 06/01/2025.
 //
-#include "custom_math.h"
+#include "CustomMath.h"
 
 double square(const double val)
 {

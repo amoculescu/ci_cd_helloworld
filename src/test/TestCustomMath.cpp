@@ -3,7 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include "custom_math.h"
+#include "CustomMath.h"
 
 TEST(TestCustomMath, square) {
 // Expect equality.
