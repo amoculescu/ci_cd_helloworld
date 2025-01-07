@@ -51,6 +51,8 @@ jobs:
           badge-type: 'cobertura'
           title: 'Coverage'
           cobertura-path: '${{github.workspace}}/cov-report/cobertura-coverage.xml'
+          cobertura-color-yellow-threshold: 75
+          cobertura-color-green-thresholdl: 90
 
       - name: GH Pages Coverage Report
         if: (success() || failure()) && github.ref == 'refs/heads/master'
