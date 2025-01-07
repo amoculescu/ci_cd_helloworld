@@ -35,7 +35,7 @@ jobs:
 
       - name: Coverage HTML
         working-directory: ${{github.workspace}}
-        run: gcovr -f src/main -r . --html-details -o cov-report/report.html --print-summary
+        run: mkdir cov-report && gcovr -f src/main -r . --html-details -o cov-report/report.html --print-summary
 
       - name: Coverage cobertura
         working-directory: ${{github.workspace}}
