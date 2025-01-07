@@ -57,6 +57,18 @@ jobs:
         with:
           folder: cov-report
 
+      - name: Code Coverage Summary Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: cov-report/cobertura.xml
+          fail_below_min: true
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: '60 80'
+
   run:
     runs-on: ubuntu-latest
     steps:
