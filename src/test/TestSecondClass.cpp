@@ -22,10 +22,21 @@ TEST(TestSecondClass, TestTestedMethod)
     EXPECT_EQ(expected2, result);
 }
 
-TEST(TestSecondClass, TestTestedMethod2) {
+TEST(TestSecondClass, TestTestedMethod2)
+{
     SecondClass dut = SecondClass();
 
     EXPECT_EQ(dut.testedMethod2("Base"), true);
     EXPECT_EQ(dut.testedMethod2("foo"), false);
     EXPECT_EQ(dut.testedMethod2("string much much longer than dut string"), false);
+}
+
+TEST(TestSecondClass, TestTestedMethod3)
+{
+    SecondClass dut = SecondClass();
+
+    EXPECT_EQ(dut.testedMethod2("Base"), true);
+    const string expected;
+    EXPECT_EQ(dut.testedMethod3(), expected);
+    EXPECT_EQ(dut.testedMethod2("Base"), false);
 }

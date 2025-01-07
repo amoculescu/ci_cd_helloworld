@@ -21,9 +21,19 @@ string SecondClass::testedMethod(const string& append)
 
 bool SecondClass::testedMethod2(const string& test)
 {
+    if (base.empty())
+    {
+        return false;
+    }
     if (test.length() > base.length())
     {
         return false;
     }
     return base.contains(test);
+}
+
+string SecondClass::testedMethod3()
+{
+    base.clear();
+    return base;
 }

@@ -15,6 +15,8 @@ public:
     string testedMethod(const string& append);
 
     bool testedMethod2(const string &test);
+
+    string testedMethod3();
 };
 
 
