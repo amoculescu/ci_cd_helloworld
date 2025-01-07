@@ -24,7 +24,7 @@ jobs:
 
       - name: Test Report
         uses: mikepenz/action-junit-report@v5
-        #if: (success() || failure()) && github.ref == 'refs/heads/master'
+        #if: (success() || failure()) && ${{github.ref == 'refs/heads/master'}}
         with:
           report_paths: '${{github.workspace}}/build/src/test/test-result.xml'
           comment: true
@@ -35,13 +35,20 @@ jobs:
 
       - name: Coverage
         working-directory: ${{github.workspace}}
-        run: gcovr -f src/main -r . -o coverage.xml --xml-pretty --print-summary
+        run: gcovr -f src/main -r . --html -o cov-report/coverage.html --print-summary --jacoco cov-report/jacoco.xml
+
+      - name: Generate JaCoCo Badge
+        #if: (success() || failure()) && ${{github.ref == 'refs/heads/master'}}
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
+          badges-directory: build/reports/jacoco/test/html/badges
 
       - name: Coverage Report
         uses: JamesIves/github-pages-deploy-action@v4
-        #if: (success() || failure()) && github.ref == 'refs/heads/master'
+        #if: (success() || failure()) && ${{github.ref == 'refs/heads/master'}}
         with:
-          folder: build
+          folder: build/cov-report
 
   run:
     runs-on: ubuntu-latest
