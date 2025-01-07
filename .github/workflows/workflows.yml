@@ -29,6 +29,7 @@ jobs:
           report_paths: '${{github.workspace}}/build/src/test/test-result.xml'
           comment: true
           updateComment: true
+          include_passed: true
 
       - name: Install Gcovr
         run: pipx install gcovr
@@ -54,7 +55,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         #if: (success() || failure()) && ${{github.ref == 'refs/heads/master'}}
         with:
-          folder: build/cov-report
+          folder: cov-report
 
   run:
     runs-on: ubuntu-latest
