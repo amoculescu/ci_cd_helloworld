@@ -60,7 +60,7 @@ jobs:
       - name: Code Coverage Summary Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          filename: cov-report/cobertura.xml
+          filename: cov-report/cobertura-coverage.xml
           fail_below_min: true
           format: markdown
           hide_branch_rate: false
