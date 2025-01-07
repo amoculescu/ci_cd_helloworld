@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/all_tests.dir/link.d CMakeFiles/all_tests.dir/test_custom_math.cpp.o -o all_tests  libbuild_tests.a ../../lib/libgtest_main.a -lgcov ../../lib/libgtest.a

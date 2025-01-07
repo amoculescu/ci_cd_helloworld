@@ -1,0 +1,30 @@
+Start testing: Jan 07 16:28 UTC
+----------------------------------------------------------
+1/1 Testing: TestCustomMath.square
+1/1 Test: TestCustomMath.square
+Command: "/home/runner/work/ci_cd_helloworld/ci_cd_helloworld/build/src/test/all_tests" "--gtest_filter=TestCustomMath.square" "--gtest_also_run_disabled_tests"
+Directory: /home/runner/work/ci_cd_helloworld/ci_cd_helloworld/build/src/test
+"TestCustomMath.square" start time: Jan 07 16:28 UTC
+Output:
+----------------------------------------------------------
+Running main() from /home/runner/work/ci_cd_helloworld/ci_cd_helloworld/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = TestCustomMath.square
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from TestCustomMath
+[ RUN      ] TestCustomMath.square
+[       OK ] TestCustomMath.square (0 ms)
+[----------] 1 test from TestCustomMath (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"TestCustomMath.square" end time: Jan 07 16:28 UTC
+"TestCustomMath.square" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jan 07 16:28 UTC
