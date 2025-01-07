@@ -1,2 +1,3 @@
 # CI/CD Hello World
-[![test](https://github.com/amoculescu/ci_cd_helloworld/blob/gh-pages/coverage.svg?cache-control=no-cache)](https://amoculescu.github.io/ci_cd_helloworld/)
+![pipeline status badge](https://github.com/github/docs/actions/workflows/workflows.yml/badge.svg?branch=master)
+[![coverage badge](https://github.com/amoculescu/ci_cd_helloworld/blob/gh-pages/coverage.svg?cache-control=no-cache)](https://amoculescu.github.io/ci_cd_helloworld/)
