@@ -1,17 +1,36 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE coverage SYSTEM 'http://cobertura.sourceforge.net/xml/coverage-04.dtd'>
-<coverage line-rate="1.0" branch-rate="1.0" lines-covered="2" lines-valid="2" branches-covered="0" branches-valid="0" complexity="0.0" timestamp="1736274048" version="gcovr 8.2">
+<coverage line-rate="0.8125" branch-rate="1.0" lines-covered="13" lines-valid="16" branches-covered="0" branches-valid="0" complexity="0.0" timestamp="1736275474" version="gcovr 8.2">
   <sources>
     <source>.</source>
   </sources>
   <packages>
-    <package name="src.main" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+    <package name="src.main" line-rate="0.8125" branch-rate="1.0" complexity="0.0">
       <classes>
-        <class name="custom_math_cpp" filename="src/main/custom_math.cpp" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+        <class name="CustomMath_cpp" filename="src/main/CustomMath.cpp" line-rate="1.0" branch-rate="1.0" complexity="0.0">
           <methods/>
           <lines>
             <line number="6" hits="1" branch="false"/>
             <line number="8" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="FirstClass_cpp" filename="src/main/FirstClass.cpp" line-rate="0.7857142857142857" branch-rate="1.0" complexity="0.0">
+          <methods/>
+          <lines>
+            <line number="7" hits="4" branch="false"/>
+            <line number="8" hits="4" branch="false"/>
+            <line number="9" hits="4" branch="false"/>
+            <line number="11" hits="0" branch="false"/>
+            <line number="12" hits="0" branch="false"/>
+            <line number="13" hits="0" branch="false"/>
+            <line number="15" hits="1" branch="false"/>
+            <line number="16" hits="1" branch="false"/>
+            <line number="19" hits="1" branch="false"/>
+            <line number="20" hits="1" branch="false"/>
+            <line number="23" hits="1" branch="false"/>
+            <line number="24" hits="1" branch="false"/>
+            <line number="27" hits="1" branch="false"/>
+            <line number="28" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>
