@@ -43,7 +43,7 @@ jobs:
         run: gcovr -f src/main -r . --cobertura-pretty --cobertura cov-report/cobertura-coverage.xml
 
       - name: Generate Badge
-        #if: (success() || failure()) && ${{github.ref == 'refs/heads/master'}}
+        if: (success() || failure()) && ${{github.ref == 'refs/heads/master'}}
         uses: cjlapao/simple-badge-generator-action@v1
         with:
           badge-path: '${{github.workspace}}/cov-report/coverage.svg'
@@ -53,7 +53,7 @@ jobs:
 
       - name: Coverage Report
         uses: JamesIves/github-pages-deploy-action@v4
-        #if: (success() || failure()) && ${{github.ref == 'refs/heads/master'}}
+        if: (success() || failure()) && ${{github.ref == 'refs/heads/master'}}
         with:
           folder: cov-report
 
