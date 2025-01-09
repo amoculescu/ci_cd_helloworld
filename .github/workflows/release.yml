@@ -1,12 +1,11 @@
 name: Release
+on: push
+
 #on:
-#  push:
-#    branches: [master]
-on:
-  workflow_run:
-    workflows: [Test]
-    types:
-      - completed
+#  workflow_run:
+#    workflows: [Test]
+#    types:
+#      - completed
 jobs:
   release:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
