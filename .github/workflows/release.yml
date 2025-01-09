@@ -1,10 +1,11 @@
 name: Test Push
-on:
-  push:
-    branches: [master]
-
+#on:
+#  push:
+#    branches: [master]
+on: push
 jobs:
   release:
+    needs: [test]
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
