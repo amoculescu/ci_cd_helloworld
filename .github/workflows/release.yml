@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, windows-latest ]
+        os: [ ubuntu-latest, windows-latest, macos-latest]
         build_type: [ Release ]
         c_compiler: [ gcc, clang, cl ]
         include:
@@ -18,7 +18,7 @@ jobs:
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
-          - os: ubuntu-latest
+          - os: macos-latest
             c_compiler: clang
             cpp_compiler: clang++
         exclude:
@@ -28,6 +28,12 @@ jobs:
             c_compiler: clang
           - os: ubuntu-latest
             c_compiler: cl
+          - os: ubuntu-latest
+            c_compiler: clang
+          - os: macos-latest
+            c_compiler: cl
+          - os: macos-latest
+            c_compiler: gcc
 
     steps:
       - uses: actions/checkout@v4
@@ -62,10 +68,10 @@ jobs:
           draft: false
           prerelease: false
       - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: svenstaro/upload-release-action@v2
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: hw**
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: hw*
+          tag: 0.0.1
+          overwrite: true
+          file_glob: true
