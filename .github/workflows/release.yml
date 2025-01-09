@@ -2,7 +2,11 @@ name: Test Push
 #on:
 #  push:
 #    branches: [master]
-on: push
+on:
+  workflow_run:
+    workflows: ["Test Push"]
+    types:
+      - completed
 jobs:
   release:
     needs: [test]
