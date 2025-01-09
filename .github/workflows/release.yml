@@ -1,7 +1,10 @@
 name: Release
 permissions:
   contents: write
-on: push
+on:
+  push:
+    tags:
+      - 'v*'
 jobs:
   create-release:
     runs-on: ubuntu-latest
@@ -15,8 +18,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: 0.0.1
-          release_name: Release 0.0.1
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
 
@@ -73,5 +76,4 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{github.workspace}}/build/src/main/${{ matrix.os == 'windows-latest' && 'Release/ci_cd_hello_world.exe' || 'ci_cd_hello_world' }}
           asset_name: ${{ matrix.asset_name }}-$tag
-          tag: 0.0.1
           overwrite: true
