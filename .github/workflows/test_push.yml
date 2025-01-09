@@ -1,14 +1,11 @@
-name: Pipeline
+name: Test Push
 
 permissions:
   checks: write
   contents: write
   pull-requests: write # only required if `comment: true` was enabled
 
-on:
-  push: []
-  pull_request:
-    types: closed
+on: push
 
 jobs:
   test:
