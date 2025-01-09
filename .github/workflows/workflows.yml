@@ -5,7 +5,11 @@ permissions:
   contents: write
   pull-requests: write # only required if `comment: true` was enabled
 
-on: [push, pull_request]
+on:
+  push: []
+  pull_request:
+    types: closed
+
 jobs:
   test:
     runs-on: ubuntu-latest
