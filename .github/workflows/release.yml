@@ -9,7 +9,7 @@ on:
       - completed
 jobs:
   release:
-    needs: [test]
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
