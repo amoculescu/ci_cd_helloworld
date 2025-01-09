@@ -33,12 +33,15 @@ jobs:
           - os: windows-latest
             c_compiler: cl
             cpp_compiler: cl
+            asset_name: hw-windows-amd64
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
+            asset_name: hw-ubuntu-amd64
           - os: macos-latest
             c_compiler: clang
             cpp_compiler: clang++
+            asset_name: hw-osx-amd64
         exclude:
           - os: windows-latest
             c_compiler: gcc
@@ -69,5 +72,6 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{github.workspace}}/build/src/main/${{ matrix.os == 'windows-latest' && 'Release/ci_cd_hello_world.exe' || 'ci_cd_hello_world' }}
+          asset_name: ${{ matrix.asset_name }}-$tag
           tag: 0.0.1
           overwrite: true
