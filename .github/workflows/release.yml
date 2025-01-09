@@ -1,0 +1,79 @@
+name: Release
+permissions:
+  contents: write
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+      - name: list files
+        run: ls -alh
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+
+  build-release:
+    runs-on: ${{ matrix.os }}
+    needs: create-release
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest]
+        build_type: [ Release ]
+        c_compiler: [ gcc, clang, cl ]
+        include:
+          - os: windows-latest
+            c_compiler: cl
+            cpp_compiler: cl
+            asset_name: hw-windows-amd64-$tag.exe
+          - os: ubuntu-latest
+            c_compiler: gcc
+            cpp_compiler: g++
+            asset_name: hw-ubuntu-amd64-$tag
+          - os: macos-latest
+            c_compiler: clang
+            cpp_compiler: clang++
+            asset_name: hw-osx-amd64-$tag
+        exclude:
+          - os: windows-latest
+            c_compiler: gcc
+          - os: windows-latest
+            c_compiler: clang
+          - os: ubuntu-latest
+            c_compiler: cl
+          - os: ubuntu-latest
+            c_compiler: clang
+          - os: macos-latest
+            c_compiler: cl
+          - os: macos-latest
+            c_compiler: gcc
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: >
+          cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }} 
+          -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
+
+      - name: Build
+        run: cmake --build ${{github.workspace}}/build --config ${{ matrix.build_type }}
+
+      - name: Upload Release Asset
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{github.workspace}}/build/src/main/${{ matrix.os == 'windows-latest' && 'Release/ci_cd_hello_world.exe' || 'ci_cd_hello_world' }}
+          asset_name: ${{ matrix.asset_name }}
+          overwrite: true
